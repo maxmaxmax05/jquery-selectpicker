@@ -6,7 +6,7 @@ Multi-select drop-downs for jQuery. Inspired by GMail's "label" dropdown, but wo
 
 h2. Features
 
- * Builds on top of standard <select multiple="multiple"/> elements
+ * Builds on top of standard &lt;select multiple=&quot;multiple&quot;/&gt; elements
  * Works in every browser
  * Looks sharp!
  

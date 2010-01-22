@@ -1,0 +1,29 @@
+h1. jquery-selectpicker
+
+Multi-select drop-downs for jQuery. Inspired by GMail's "label" dropdown, but works with standard html select elements.
+
+h2. Features
+
+ * Builds on top of standard <select multiple="multiple"/> elements
+ * Works in every browser
+ * Looks sharp!
+ 
+h2. Usage
+
+NOTE: See "demo.html":http://freshbooks.github.com/jquery-selectpicker/demo.html for  a live example.
+
+<pre>
+<code>
+$(function() {
+	$('select').selectPicker({label: 'Colors'});
+});
+</code>
+</pre>
+
+h2. License
+
+MIT License. See LICENSE for more information.
+
+h2. Authors
+
+Ben Vinegar (Javascript), Jaco Joubert (Design), and Jeff Sarmiento (Design)

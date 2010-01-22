@@ -46,22 +46,26 @@
 					</span>\
 				</span>\
 			</a>\
-		').insertBefore($select).css('width', $select.width());
+		').insertBefore($select);
+		
+		if ($select.css('width')) {
+			$combobox.css('width', $select.css('width'));
+		}
 		
 		var _updateTitle = function() {
 			var title = '';
 
 			var $selectedOpts = $select.find('option:selected');
 			switch ($selectedOpts.length) {
-				case 0:  title = 'All ' + opts.label; break;
+				case 0:  title = ''; break;
 				case 1:  title = $selectedOpts.filter(':first').text(); break;
-				default: title = $selectedOpts.length + ' ' + opts.label; break;
+				default: title = $selectedOpts.length + ' ' + opts['label']; break;
 			}
 
 			$combobox.find('span.selectpicker-title').text(title);
 		}
 		_updateTitle();
-		
+
 		$select.wrap('\
 			<div class="selectpicker-window" style="display:none; position: absolute"></div>\
 		').parent().width(opts.width);
@@ -91,6 +95,7 @@
 			// Did they click the close button? Or click outside the window?
 			else if ($target.is('.selectpicker-close') || !$target.closest('div').is('.selectpicker-window')) {
 				_hideSelect();
+				return false;
 			}
 		}
 		var _hideSelect = function() {
@@ -112,12 +117,7 @@
 
 			$window.toggle().find('select').focus();
 		}
-
-		$select.change(function() {
-			_updateTitle();
-		});
-		
-		$combobox.click(function() {
+		var _comboboxClick = function() {
 			if ($window.is(':visible')) {
 				_hideSelect();
 			} else {
@@ -125,6 +125,14 @@
 				$(document).click(_documentClick);
 			}
 			return false;
+		};
+		
+		$select.change(function() {
+			_updateTitle();
 		});
+		
+		$combobox.click(_comboboxClick);
+		$('label[for=' + $select.attr('id') + ']').click(_comboboxClick);
+
 	}
 })(jQuery);

@@ -2,6 +2,8 @@ h1. jquery-selectpicker
 
 Multi-select drop-downs for jQuery. Inspired by GMail's "label" dropdown, but works with standard html select elements.
 
+!http://freshbooks.github.com/jquery-selectpicker/preview.png!
+
 h2. Features
 
  * Builds on top of standard <select multiple="multiple"/> elements
